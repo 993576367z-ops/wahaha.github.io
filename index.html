@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云帆科技 · 企业官网</title>
+    <!-- Font Awesome 5 (免费图标库) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- Google Fonts: 现代无衬线字体 Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            line-height: 1.5;
+            background-color: #ffffff;
+            scroll-behavior: smooth; /* 平滑滚动 */
+        }
+
+        /* 滚动时避免固定header遮挡标题 */
+        html {
+            scroll-padding-top: 80px;
+        }
+
+        /* 容器：居中对齐，内边距保证移动端舒适 */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* 通用节标题 */
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #0f172a;
+        }
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 400;
+            color: #475569;
+            max-width: 700px;
+            margin: 0 auto 3rem auto;
+        }
+
+        /* ------ 头部导航 ------ */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(4px);
+            background-color: rgba(255,255,255,0.95);
+        }
+        header .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 16px;
+            padding-bottom: 16px;
+            gap: 16px;
+        }
+
+        .logo a {
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+        .logo h1 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            letter-spacing: -0.5px;
+        }
+        .logo span {
+            font-size: 0.8rem;
+            font-weight: 400;
+            color: #64748b;
+            letter-spacing: 1px;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-wrap: wrap;
+            list-style: none;
+            gap: 24px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            color: #334155;
+            padding: 6px 0;
+            transition: color 0.2s;
+            border-bottom: 2px solid transparent;
+        }
+        .nav-links a:hover {
+            color: #2563eb;
+            border-bottom-color: #2563eb;
+        }
+
+        .btn-header {
+            background-color: #2563eb;
+            color: white !important;
+            padding: 10px 24px !important;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border: none;
+            transition: background-color 0.2s, transform 0.1s;
+            white-space: nowrap;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-header:hover {
+            background-color: #1d4ed8;
+            transform: scale(1.02);
+            border-bottom: none !important;
+        }
+
+        /* ------ Hero 部分 ------ */
+        .hero {
+            background: linear-gradient(145deg, #f8fafc 0%, #e6f0ff 100%);
+            padding: 80px 0;
+        }
+        .hero .container {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+        .hero-content {
+            flex: 1 1 400px;
+        }
+        .hero-content h2 {
+            font-size: 3rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #0f172a;
+            margin-bottom: 24px;
+        }
+        .hero-content h2 span {
+            color: #2563eb;
+            border-bottom: 4px solid #2563eb;
+            display: inline-block;
+            padding-bottom: 4px;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            color: #334155;
+            max-width: 550px;
+            margin-bottom: 32px;
+        }
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+        .btn-primary, .btn-outline {
+            display: inline-block;
+            padding: 14px 36px;
+            border-radius: 40px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        .btn-primary {
+            background-color: #2563eb;
+            color: white;
+            box-shadow: 0 10px 20px -8px rgba(37,99,235,0.3);
+        }
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -8px rgba(37,99,235,0.4);
+        }
+        .btn-outline {
+            border: 2px solid #2563eb;
+            color: #2563eb;
+            background: transparent;
+        }
+        .btn-outline:hover {
+            background-color: #2563eb;
+            color: white;
+        }
+        .hero-image {
+            flex: 1 1 300px;
+            display: flex;
+            justify-content: center;
+        }
+        .hero-image .illu {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            background: transparent;
+        }
+
+        /* 公用卡片样式 */
+        .card {
+            background-color: white;
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: 0 15px 35px -15px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            height: 100%;
+        }
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 30px 45px -20px rgba(37,99,235,0.25);
+        }
+
+        /* 关于部分 */
+        .about {
+            padding: 80px 0;
+            background-color: #ffffff;
+        }
+        .about-grid {
+            display: flex;
+            gap: 60px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .about-text {
+            flex: 2 1 400px;
+        }
+        .about-text h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-bottom: 20px;
+        }
+        .about-text p {
+            color: #475569;
+            font-size: 1.1rem;
+            margin-bottom: 24px;
+        }
+        .about-stats {
+            flex: 1 1 250px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 30px;
+            justify-content: center;
+        }
+        .stat-item {
+            text-align: center;
+            min-width: 120px;
+        }
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: #2563eb;
+            line-height: 1;
+        }
+        .stat-label {
+            color: #475569;
+            font-weight: 500;
+        }
+
+        /* 服务部分 */
+        .services {
+            background-color: #f8fafc;
+            padding: 80px 0;
+        }
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+        .service-icon {
+            font-size: 2.5rem;
+            color: #2563eb;
+            margin-bottom: 20px;
+        }
+        .service-card h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #0f172a;
+        }
+        .service-card p {
+            color: #475569;
+        }
+
+        /* 团队部分 */
+        .team {
+            padding: 80px 0;
+            background-color: white;
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+        }
+        .team-member {
+            text-align: center;
+            padding: 32px 16px;
+        }
+        .member-avatar {
+            background-color: #e2e8f0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #2563eb;
+            font-size: 5rem;
+            transition: background 0.2s;
+        }
+        .team-member:hover .member-avatar {
+            background-color: #dbeafe;
+        }
+        .team-member h4 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+        .team-member p {
+            color: #64748b;
+            font-weight: 500;
+        }
+
+        /* 联系部分 */
+        .contact {
+            background: linear-gradient(135deg, #f1f5f9 0%, #ffffff 100%);
+            padding: 80px 0;
+        }
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .contact-item {
+            text-align: center;
+            background: white;
+            padding: 32px 16px;
+            border-radius: 32px;
+            box-shadow: 0 10px 25px -10px rgba(0,0,0,0.05);
+        }
+        .contact-icon {
+            font-size: 2.2rem;
+            color: #2563eb;
+            margin-bottom: 16px;
+        }
+        .contact-item h5 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        .contact-item a, .contact-item address {
+            font-style: normal;
+            color: #334155;
+            text-decoration: none;
+            line-height: 1.6;
+        }
+        .contact-item a:hover {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+
+        /* 简易地图占位/展示 */
+        .map-placeholder {
+            background-color: #cbd5e1;
+            height: 250px;
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #1e293b;
+            font-weight: 500;
+            background-image: radial-gradient(circle at 20px 20px, #94a3b8 2px, transparent 2px), 
+                              linear-gradient(#e2e8f0, #e2e8f0);
+            background-size: 40px 40px, 100%;
+            margin-top: 40px;
+        }
+        .map-placeholder span {
+            background: rgba(255,255,255,0.7);
+            backdrop-filter: blur(5px);
+            padding: 8px 30px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+        }
+
+        /* 页脚 */
+        footer {
+            background-color: #0f172a;
+            color: #cbd5e1;
+            padding: 40px 0 20px;
+        }
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .footer-logo h2 {
+            color: white;
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .footer-logo p {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+        .social-links {
+            display: flex;
+            gap: 24px;
+        }
+        .social-links a {
+            color: #94a3b8;
+            font-size: 1.4rem;
+            transition: color 0.2s, transform 0.2s;
+        }
+        .social-links a:hover {
+            color: #2563eb;
+            transform: translateY(-3px);
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #334155;
+            color: #94a3b8;
+            font-size: 0.9rem;
+        }
+
+        /* 响应式微调 */
+        @media (max-width: 700px) {
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            .nav-wrapper {
+                width: 100%;
+                justify-content: space-between;
+            }
+            .nav-links {
+                gap: 16px;
+            }
+        }
+        @media (max-width: 480px) {
+            .btn-header {
+                padding: 8px 16px !important;
+            }
+            .nav-links {
+                gap: 12px;
+                font-size: 0.9rem;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+        /* 为ID锚点增加偏移 (已被scroll-padding处理) */
+        section {
+            scroll-margin-top: 70px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="#home">
+                    <h1>云帆科技</h1>
+                    <span>CloudSail · 智启未来</span>
+                </a>
+            </div>
+            <div class="nav-wrapper">
+                <ul class="nav-links">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#about">关于</a></li>
+                    <li><a href="#services">服务</a></li>
+                    <li><a href="#team">团队</a></li>
+                    <li><a href="#contact">联系</a></li>
+                </ul>
+                <a href="#contact" class="btn-header"><i class="fas fa-paper-plane" style="margin-right: 8px;"></i>获取方案</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero 首页区域 -->
+        <section class="hero" id="home">
+            <div class="container">
+                <div class="hero-content">
+                    <h2>创新 <span>驱动</span><br>数字化转型</h2>
+                    <p>我们提供领先的软件、云服务与AI解决方案，助力企业实现高效增长。</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">免费咨询</a>
+                        <a href="#services" class="btn-outline">探索服务</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <!-- 纯CSS占位图 / 简单字符搭配FontAwesome，制造抽象图 -->
+                    <div class="illu" style="font-size: 12rem; color: #2563eb; opacity: 0.15; display: flex; gap: 10px;">
+                        <i class="fas fa-cloud-upload-alt"></i>
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 关于我们 -->
+        <section class="about" id="about">
+            <div class="container">
+                <h2 class="section-title">关于云帆</h2>
+                <p class="section-subtitle">一家致力于用技术重塑商业价值的创新型科技公司</p>
+                <div class="about-grid">
+                    <div class="about-text">
+                        <h3>技术 · 极智 · 信赖</h3>
+                        <p>云帆科技成立于2018年，总部位于上海。我们汇聚了顶尖的工程师、设计师与行业专家，为全球超过200家企业提供了从云计算架构到人工智能应用的落地服务。我们相信，优秀的技术应当简洁、可靠且具有远见。</p>
+                        <p>无论是初创公司还是大型集团，我们都提供量身定制的解决方案，帮助客户在数字化浪潮中占据先机。</p>
+                    </div>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">200+</div>
+                            <div class="stat-label">合作企业</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">98%</div>
+                            <div class="stat-label">客户续约率</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7</div>
+                            <div class="stat-label">全球办公室</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务 -->
+        <section class="services" id="services">
+            <div class="container">
+                <h2 class="section-title">核心服务</h2>
+                <p class="section-subtitle">从战略到执行，我们用技术驱动商业价值</p>
+                <div class="services-grid">
+                    <div class="card service-card">
+                        <div class="service-icon"><i class="fas fa-cloud"></i></div>
+                        <h4>云原生架构</h4>
+                        <p>基于容器与微服务，构建高弹性、高可用的云基础设施，降低运维成本。</p>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                        <h4>数据智能</h4>
+                        <p>大数据分析 + AI 模型，挖掘业务深层洞察，让决策更精准。</p>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon"><i class="fas fa-mobile-alt"></i></div>
+                        <h4>全端开发</h4>
+                        <p>Web、小程序、App 一体化设计开发，快速迭代，极致用户体验。</p>
+                    </div>
+                    <div class="card service-card">
+                        <div class="service-icon"><i class="fas fa-shield-alt"></i></div>
+                        <h4>网络安全</h4>
+                        <p>主动防御体系，渗透测试与合规咨询，保障企业数字资产。</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 团队 -->
+        <section class="team" id="team">
+            <div class="container">
+                <h2 class="section-title">核心团队</h2>
+                <p class="section-subtitle">来自全球顶尖企业与研究机构的创新伙伴</p>
+                <div class="team-grid">
+                    <div class="card team-member">
+                        <div class="member-avatar"><i class="fas fa-user-circle"></i></div>
+                        <h4>陈思远</h4>
+                        <p>创始人 & CEO</p>
+                        <p style="font-size:0.9rem; margin-top:8px; color:#475569;">前AWS技术专家，15年架构经验</p>
+                    </div>
+                    <div class="card team-member">
+                        <div class="member-avatar"><i class="fas fa-user-circle"></i></div>
+                        <h4>李 琳</h4>
+                        <p>联合创始人 & CTO</p>
+                        <p style="font-size:0.9rem; margin-top:8px; color:#475569;">AI领域博士，主导多项联邦学习项目</p>
+                    </div>
+                    <div class="card team-member">
+                        <div class="member-avatar"><i class="fas fa-user-circle"></i></div>
+                        <h4>王 磊</h4>
+                        <p>设计总监</p>
+                        <p style="font-size:0.9rem; margin-top:8px; color:#475569;">红点奖得主，用户体验布道者</p>
+                    </div>
+                    <div class="card team-member">
+                        <div class="member-avatar"><i class="fas fa-user-circle"></i></div>
+                        <h4>张 悦</h4>
+                        <p>客户成功总监</p>
+                        <p style="font-size:0.9rem; margin-top:8px; color:#475569;">助力50+企业完成数字化落地</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 联系与位置 -->
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2 class="section-title">联系云帆</h2>
+                <p class="section-subtitle">我们期待与您的下一次合作</p>
+                <div class="contact-grid">
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h5>上海总部</h5>
+                        <address>浦东新区 · 现代产业园B3<br>（来访请提前预约）</address>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-phone-alt"></i></div>
+                        <h5>电话咨询</h5>
+                        <a href="tel:4001234567">400-123-4567</a><br>
+                        <span style="color:#94a3b8;">( 工作日 9:00-18:00 )</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <h5>电子邮件</h5>
+                        <a href="mailto:hello@cloudsail.com">hello@cloudsail.com</a><br>
+                        <span style="color:#94a3b8;">24h 内回复</span>
+                    </div>
+                </div>
+                <!-- 模拟地图区域 (装饰) -->
+                <div class="map-placeholder">
+                    <span><i class="fas fa-map-pin" style="margin-right: 6px;"></i> 云帆科技 · 浦东新区</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <h2>云帆科技</h2>
+                    <p>CloudSail Technologies</p>
+                </div>
+                <div class="social-links">
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="WeChat"><i class="fab fa-weixin"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 云帆科技（上海）有限公司 · 保留一切权利 · 沪ICP备2025123456号</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 极简交互：保证任何id跳转不突兀 (已经在css设置scroll-padding) -->
+</body>
+</html>
